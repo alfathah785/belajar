@@ -4,13 +4,13 @@
     <meta charset="utf-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1, viewport-fit=cover"
-    />
-    <title>OatPagi – Sarapan Oatmeal Gandum untuk Pelajar</title>
+      content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>
+      OatPagi – Sarapan Oatmeal Gandum untuk Pelajar
+    </title>
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700;800&display=swap"
-    />
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700;800&display=swap" />
     <style>
       :root {
         --bg: #f1f6ee;
@@ -53,7 +53,9 @@
         color-scheme: dark;
       }
       html {
-        scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 70px);
+        scroll-padding-top: calc(
+          env(safe-area-inset-top, 0px) + 70px
+        );
         scroll-behavior: smooth;
       }
       @media (prefers-reduced-motion: reduce) {
@@ -241,7 +243,8 @@
           var(--orange) 56% 62%,
           transparent 63%
         );
-        animation: rise 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        animation: rise 1.2s cubic-bezier(0.2, 0.8, 0.2, 1)
+          both;
       }
       @keyframes rise {
         from {
@@ -256,7 +259,9 @@
       .sunbox .big {
         position: relative;
         width: 46%;
-        filter: drop-shadow(0 14px 0 rgba(20, 33, 61, 0.15));
+        filter: drop-shadow(
+          0 14px 0 rgba(20, 33, 61, 0.15)
+        );
       }
       /* racik */
       .racik {
@@ -305,7 +310,10 @@
       .grid {
         display: grid;
         gap: 18px;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        grid-template-columns: repeat(
+          auto-fit,
+          minmax(220px, 1fr)
+        );
       }
       .card {
         background: var(--surface);
@@ -489,7 +497,9 @@
         position: fixed;
         left: 12px;
         right: 12px;
-        bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+        bottom: calc(
+          env(safe-area-inset-bottom, 0px) + 12px
+        );
         z-index: 30;
         background: var(--ink);
         color: var(--bg);
@@ -522,12 +532,21 @@
   <body>
     <header class="top">
       <div class="wrap">
-        <a class="logo" href="#atas" id="logo"></a>
+        <a
+          class="logo"
+          href="#atas"
+          id="logo"></a>
         <nav aria-label="Menu">
-          <a href="#racik">Racik</a><a href="#produk">Produk</a
-          ><a href="#pesan">Pesan</a>
+          <a href="#racik">Racik</a>
+          <a href="#produk">Produk</a>
+          <a href="#pesan">Pesan</a>
         </nav>
-        <a class="pill" href="#pesan" id="pillCart">Keranjang 0</a>
+        <a
+          class="pill"
+          href="#pesan"
+          id="pillCart">
+          Keranjang 0
+        </a>
       </div>
     </header>
 
@@ -537,12 +556,22 @@
           <div>
             <h1>Sarapan sehat, jadi dalam 3 menit.</h1>
             <p class="lead">
-              Oatmeal gandum utuh dalam cup, dengan gula yang dikurangi dan rasa
-              yang disukai anak sekolah. Seduh di rumah atau di kantin.
+              Oatmeal gandum utuh dalam cup, dengan gula
+              yang dikurangi dan rasa yang disukai anak
+              sekolah. Seduh di rumah atau di kantin.
             </p>
             <p>
-              <a class="btn" href="#produk">Pilih rasa</a> &nbsp;
-              <a class="btn ghost" href="#racik">Coba racik</a>
+              <a
+                class="btn"
+                href="#produk">
+                Pilih rasa
+              </a>
+              &nbsp;
+              <a
+                class="btn ghost"
+                href="#racik">
+                Coba racik
+              </a>
             </p>
             <ul class="chips">
               <li>Gandum utuh</li>
@@ -550,45 +579,58 @@
               <li>Mulai Rp12.000</li>
             </ul>
           </div>
-          <div class="sunbox" aria-hidden="true">
+          <div
+            class="sunbox"
+            aria-hidden="true">
             <div class="sun"></div>
-            <div class="big" id="heroCup"></div>
+            <div
+              class="big"
+              id="heroCup"></div>
           </div>
         </section>
       </div>
 
       <div class="wrap">
-        <section id="racik" style="padding-top: 20px">
+        <section
+          id="racik"
+          style="padding-top: 20px">
           <div class="racik">
             <div>
               <h2>Racik oatmeal-mu</h2>
               <p>
-                Geser takaran dan lihat isi cup berubah. Cocok untuk cari
-                tekstur favoritmu.
+                Geser takaran dan lihat isi cup berubah.
+                Cocok untuk cari tekstur favoritmu.
               </p>
-              <label for="oat">Oat <span id="oatV"></span></label>
+              <label for="oat">
+                Oat
+                <span id="oatV"></span>
+              </label>
               <input
                 type="range"
                 id="oat"
                 min="20"
                 max="80"
                 step="5"
-                value="40"
-              />
-              <label for="milk"
-                >Susu atau air panas <span id="milkV"></span
-              ></label>
+                value="40" />
+              <label for="milk">
+                Susu atau air panas
+                <span id="milkV"></span>
+              </label>
               <input
                 type="range"
                 id="milk"
                 min="100"
                 max="300"
                 step="10"
-                value="150"
-              />
-              <div class="out" id="mixOut"></div>
+                value="150" />
+              <div
+                class="out"
+                id="mixOut"></div>
             </div>
-            <div class="cupwrap" id="racikCup" aria-hidden="true"></div>
+            <div
+              class="cupwrap"
+              id="racikCup"
+              aria-hidden="true"></div>
           </div>
         </section>
       </div>
@@ -596,7 +638,9 @@
       <div class="wrap">
         <section id="produk">
           <h2>Pilih rasa favoritmu</h2>
-          <div class="grid" id="products"></div>
+          <div
+            class="grid"
+            id="products"></div>
         </section>
       </div>
 
@@ -607,33 +651,61 @@
             <div class="box">
               <h3>Keranjangmu</h3>
               <div id="cartRows"></div>
-              <div class="total" id="total">Rp0</div>
-              <p class="note" id="promo"></p>
+              <div
+                class="total"
+                id="total">
+                Rp0
+              </div>
+              <p
+                class="note"
+                id="promo"></p>
             </div>
             <div class="box">
               <h3>Data pemesan</h3>
-              <label class="f" for="nama">Nama</label
-              ><input
+              <label
+                class="f"
+                for="nama">
+                Nama
+              </label>
+              <input
                 class="f"
                 id="nama"
                 placeholder="Nama kamu"
-                autocomplete="name"
-              />
-              <label class="f" for="kelas">Kelas atau alamat antar</label
-              ><input
+                autocomplete="name" />
+              <label
+                class="f"
+                for="kelas">
+                Kelas atau alamat antar
+              </label>
+              <input
                 class="f"
                 id="kelas"
-                placeholder="Contoh: 8B, atau ambil di kantin"
-              />
-              <label class="f" for="bayar">Pembayaran</label>
-              <select class="f" id="bayar">
-                <option>Tunai saat ambil (COD)</option>
-                <option>Transfer atau QRIS (konfirmasi lewat WA)</option>
+                placeholder="Contoh: 8B, atau ambil di kantin" />
+              <label
+                class="f"
+                for="bayar">
+                Pembayaran
+              </label>
+              <select
+                class="f"
+                id="bayar">
+                <option value="cod">
+                  Tunai saat ambil (COD)
+                </option>
+                <option value="wa">
+                  Transfer atau QRIS (konfirmasi lewat WA)
+                </option>
               </select>
-              <button class="btn" id="kirim" style="width: 100%">
+              <button
+                class="btn"
+                id="kirim"
+                style="width: 100%">
                 Kirim pesanan lewat WhatsApp
               </button>
-              <p class="err" id="err" role="alert"></p>
+              <p
+                class="err"
+                id="err"
+                role="alert"></p>
             </div>
           </div>
           <ol class="steps">
@@ -647,13 +719,24 @@
     </main>
     <footer>
       <div class="wrap">
-        OatPagi © 2026. Proyek KWU Bisnis Digital oleh [Nama Kamu], Kelas [..].
+        OatPagi © 2026. Proyek KWU Bisnis Digital oleh [Nama
+        Kamu], Kelas [..].
       </div>
     </footer>
 
-    <div class="bar hide" id="bar">
-      <span><span id="barN">0</span> item · <b id="barT">Rp0</b></span
-      ><a class="btn" href="#pesan">Checkout</a>
+    <div
+      class="bar hide"
+      id="bar">
+      <span>
+        <span id="barN">0</span>
+        item ·
+        <b id="barT">Rp0</b>
+      </span>
+      <a
+        class="btn"
+        href="#pesan">
+        Checkout
+      </a>
     </div>
 
     <script>
@@ -686,7 +769,10 @@
       }
       document.getElementById("logo").innerHTML =
         '<svg viewBox="0 0 100 125"><path d="M14 34h72l-8 84a6 6 0 0 1-6 5H28a6 6 0 0 1-6-5z" fill="#ffcf4a" stroke="currentColor" stroke-width="8"/><rect x="9" y="22" width="82" height="14" rx="7" fill="#ff6b35" stroke="currentColor" stroke-width="8"/></svg>OatPagi';
-      document.getElementById("heroCup").innerHTML = cup("#ff6b35", 0.8);
+      document.getElementById("heroCup").innerHTML = cup(
+        "#ff6b35",
+        0.8,
+      );
       var P = [
         {
           id: 1,
@@ -730,7 +816,9 @@
         var c = document.createElement("div");
         c.className = "card" + (x.wide ? " wide" : "");
         c.innerHTML =
-          (x.t ? '<span class="tag">' + x.t + "</span>" : "") +
+          (x.t
+            ? '<span class="tag">' + x.t + "</span>"
+            : "") +
           '<div class="art">' +
           cup(x.c) +
           "</div><h3>" +
@@ -740,7 +828,8 @@
           "</p>";
         var a = document.createElement("div");
         a.className = "add";
-        a.innerHTML = '<span class="price">' + rp(x.p) + "</span>";
+        a.innerHTML =
+          '<span class="price">' + rp(x.p) + "</span>";
         var b = document.createElement("button");
         b.className = "btn";
         b.textContent = "Tambah";
@@ -799,57 +888,111 @@
         });
         var disc = cups >= 5 ? Math.round(s * 0.1) : 0;
         sum = s - disc;
-        document.getElementById("total").textContent = rp(sum);
+        document.getElementById("total").textContent =
+          rp(sum);
         document.getElementById("promo").textContent = disc
-          ? "Diskon 10% untuk 5 cup atau lebih: hemat " + rp(disc)
+          ? "Diskon 10% untuk 5 cup atau lebih: hemat " +
+            rp(disc)
           : cups
-            ? "Tambah " + (5 - cups) + " cup lagi untuk diskon 10%."
+            ? "Tambah " +
+              (5 - cups) +
+              " cup lagi untuk diskon 10%."
             : "";
-        document.getElementById("pillCart").textContent = "Keranjang " + items;
+        document.getElementById("pillCart").textContent =
+          "Keranjang " + items;
         document.getElementById("barN").textContent = items;
-        document.getElementById("barT").textContent = rp(sum);
-        document.getElementById("bar").classList.toggle("hide", items === 0);
+        document.getElementById("barT").textContent =
+          rp(sum);
+        document
+          .getElementById("bar")
+          .classList.toggle("hide", items === 0);
       }
       draw();
-      document.getElementById("kirim").onclick = function () {
-        var err = document.getElementById("err"),
-          nama = document.getElementById("nama").value.trim(),
-          kelas = document.getElementById("kelas").value.trim();
-        var ids = Object.keys(cart).filter(function (k) {
-          return cart[k] > 0;
-        });
-        if (!ids.length) {
-          err.textContent = "Pilih minimal satu produk dulu.";
-          return;
-        }
-        if (!nama || !kelas) {
-          err.textContent = "Isi nama dan kelas atau alamat dulu.";
-          return;
-        }
-        err.textContent = "";
-        var t = "Halo OatPagi, saya mau pesan:%0A";
-        ids.forEach(function (k) {
-          var x = P.filter(function (y) {
-            return y.id == k;
-          })[0];
-          t += "- " + x.n + " x" + cart[k] + "%0A";
-        });
-        t +=
-          "Total: " +
-          rp(sum) +
-          "%0ANama: " +
-          encodeURIComponent(nama) +
-          "%0ATempat: " +
-          encodeURIComponent(kelas) +
-          "%0APembayaran: " +
-          encodeURIComponent(document.getElementById("bayar").value);
-        window.open("https://wa.me/" + WA + "?text=" + t, "_blank");
-      };
+
+      document.getElementById("kirim").onclick =
+        function () {
+          var err = document.getElementById("err"),
+            nama = document
+              .getElementById("nama")
+              .value.trim(),
+            kelas = document
+              .getElementById("kelas")
+              .value.trim(),
+            bayar = document.getElementById("bayar").value;
+
+          var ids = Object.keys(cart).filter(function (k) {
+            return cart[k] > 0;
+          });
+
+          if (!ids.length) {
+            err.textContent =
+              "Pilih minimal satu produk dulu.";
+            return;
+          }
+
+          if (!nama || !kelas) {
+            err.textContent =
+              "Isi nama dan kelas atau alamat dulu.";
+            return;
+          }
+
+          err.textContent = "";
+
+          var t = "Halo OatPagi, saya mau pesan:\n";
+
+          ids.forEach(function (k) {
+            var x = P.filter(function (y) {
+              return y.id == k;
+            })[0];
+
+            t += "- " + x.n + " x" + cart[k] + "\n";
+          });
+
+          t +=
+            "Total: " +
+            rp(sum) +
+            "\nNama: " +
+            nama +
+            "\nTempat: " +
+            kelas +
+            "\nPembayaran: " +
+            document.getElementById("bayar")
+              .selectedOptions[0].text;
+
+          // COD
+          if (bayar === "cod") {
+            alert(
+              "Pesanan COD berhasil disiapkan!\n\n" +
+                "Nama: " +
+                nama +
+                "\nTotal: " +
+                rp(sum) +
+                "\nPembayaran: Tunai saat ambil (COD)\n\n" +
+                "Silakan lakukan pembayaran saat mengambil pesanan.",
+            );
+
+            return; // Berhenti, tidak membuka WhatsApp
+          }
+
+          // QRIS
+          if (bayar === "wa") {
+            var url =
+              "https://wa.me/" +
+              WA +
+              "?text=" +
+              encodeURIComponent(t);
+
+            window.open(url, "_blank");
+          }
+        };
+
       function mix() {
         var o = +document.getElementById("oat").value,
           m = +document.getElementById("milk").value;
-        document.getElementById("oatV").textContent = o + " g";
-        document.getElementById("milkV").textContent = m + " ml";
+        document.getElementById("oatV").textContent =
+          o + " g";
+        document.getElementById("milkV").textContent =
+          m + " ml";
         var kal = Math.round(o * 3.8 + m * 0.5),
           r = m / o,
           tx =
