@@ -1,0 +1,877 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>OatPagi – Sarapan Oatmeal Gandum untuk Pelajar</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700;800&display=swap"
+    />
+    <style>
+      :root {
+        --bg: #f1f6ee;
+        --surface: #fff;
+        --ink: #14213d;
+        --muted: #51607a;
+        --line: #d4e0cd;
+        --btn: #14213d;
+        --btn-ink: #fff;
+        --sun: #ffcf4a;
+        --orange: #ff6b35;
+        --mint: #cfe8d5;
+        color-scheme: light;
+        box-sizing: border-box;
+        padding-top: env(safe-area-inset-top, 0px);
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #101a2b;
+          --surface: #18243a;
+          --ink: #f2f6ee;
+          --muted: #a7b4c9;
+          --line: #2a3a55;
+          --btn: #ffcf4a;
+          --btn-ink: #14213d;
+          --mint: #1f3a3a;
+          color-scheme: dark;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #101a2b;
+        --surface: #18243a;
+        --ink: #f2f6ee;
+        --muted: #a7b4c9;
+        --line: #2a3a55;
+        --btn: #ffcf4a;
+        --btn-ink: #14213d;
+        --mint: #1f3a3a;
+        color-scheme: dark;
+      }
+      html {
+        scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 70px);
+        scroll-behavior: smooth;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          animation: none !important;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font:
+          400 16px/1.6 "Nunito",
+          "Segoe UI",
+          system-ui,
+          sans-serif;
+        padding-bottom: 84px;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Baloo 2", "Trebuchet MS", sans-serif;
+        font-weight: 800;
+        line-height: 1.05;
+        margin: 0 0 0.4em;
+      }
+      h1 {
+        font-size: clamp(2.6rem, 9vw, 5rem);
+        letter-spacing: -0.02em;
+      }
+      h2 {
+        font-size: clamp(1.9rem, 5vw, 2.8rem);
+      }
+      h3 {
+        font-size: 1.3rem;
+        line-height: 1.2;
+      }
+      .wrap {
+        max-width: 1020px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      section {
+        padding: 56px 0;
+      }
+      .top {
+        position: sticky;
+        top: env(safe-area-inset-top, 0px);
+        z-index: 20;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+      }
+      .top .wrap {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font:
+          800 1.5rem "Baloo 2",
+          sans-serif;
+        color: var(--ink);
+        text-decoration: none;
+        margin-right: auto;
+      }
+      .logo svg {
+        width: 28px;
+        height: 34px;
+      }
+      nav {
+        display: none;
+        gap: 18px;
+        font-weight: 800;
+        font-size: 0.95rem;
+      }
+      @media (min-width: 720px) {
+        nav {
+          display: flex;
+        }
+      }
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+      nav a:hover {
+        color: var(--ink);
+      }
+      .pill {
+        border: 2px solid var(--ink);
+        background: transparent;
+        color: var(--ink);
+        font:
+          800 0.95rem "Nunito",
+          sans-serif;
+        padding: 6px 14px;
+        border-radius: 999px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .btn {
+        display: inline-block;
+        border: 0;
+        background: var(--btn);
+        color: var(--btn-ink);
+        font:
+          800 1rem "Nunito",
+          sans-serif;
+        padding: 13px 26px;
+        border-radius: 999px;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .btn.ghost {
+        background: transparent;
+        color: var(--ink);
+        border: 2px solid var(--ink);
+      }
+      .btn:active {
+        transform: scale(0.97);
+      }
+      :focus-visible {
+        outline: 3px solid var(--orange);
+        outline-offset: 3px;
+      }
+      /* hero */
+      .hero {
+        display: grid;
+        gap: 20px;
+        align-items: center;
+        padding-top: 36px;
+        padding-bottom: 36px;
+      }
+      @media (min-width: 800px) {
+        .hero {
+          grid-template-columns: 1.1fr 0.9fr;
+        }
+      }
+      .hero p.lead {
+        font-size: 1.15rem;
+        color: var(--muted);
+        max-width: 44ch;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .chips li {
+        background: var(--mint);
+        padding: 5px 14px;
+        border-radius: 999px;
+        font-weight: 800;
+        font-size: 0.88rem;
+      }
+      .sunbox {
+        position: relative;
+        aspect-ratio: 1/1;
+        max-width: 440px;
+        width: 100%;
+        margin: 0 auto;
+        display: grid;
+        place-items: center;
+      }
+      .sun {
+        position: absolute;
+        inset: 6%;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          var(--sun) 0 55%,
+          var(--orange) 56% 62%,
+          transparent 63%
+        );
+        animation: rise 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+      }
+      @keyframes rise {
+        from {
+          transform: translateY(40%) scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: none;
+          opacity: 1;
+        }
+      }
+      .sunbox .big {
+        position: relative;
+        width: 46%;
+        filter: drop-shadow(0 14px 0 rgba(20, 33, 61, 0.15));
+      }
+      /* racik */
+      .racik {
+        background: var(--ink);
+        color: var(--bg);
+        border-radius: 36px;
+        padding: 30px;
+        display: grid;
+        gap: 24px;
+        align-items: center;
+      }
+      @media (min-width: 760px) {
+        .racik {
+          grid-template-columns: 1fr 1fr;
+          padding: 44px;
+        }
+      }
+      .racik h2 {
+        color: var(--sun);
+      }
+      .racik p {
+        opacity: 0.85;
+        margin: 0 0 14px;
+      }
+      .racik label {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 800;
+        margin-top: 12px;
+      }
+      .racik input[type="range"] {
+        width: 100%;
+        accent-color: var(--orange);
+      }
+      .racik .out {
+        margin-top: 16px;
+        padding: 14px 16px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+      }
+      .racik .cupwrap {
+        display: grid;
+        place-items: center;
+      }
+      /* produk */
+      .grid {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+      .card {
+        background: var(--surface);
+        border: 2px solid var(--line);
+        border-radius: 28px 28px 28px 8px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        position: relative;
+      }
+      .card .art {
+        background: var(--mint);
+        border-radius: 20px;
+        height: 150px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 6px;
+      }
+      .card .art svg {
+        height: 120px;
+      }
+      .card p {
+        margin: 0 0 8px;
+        color: var(--muted);
+        font-size: 0.93rem;
+        flex: 1;
+      }
+      .card .price {
+        font:
+          800 1.4rem "Baloo 2",
+          sans-serif;
+      }
+      .card .add {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+      }
+      .tag {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        background: var(--orange);
+        color: #fff;
+        font-weight: 800;
+        font-size: 0.78rem;
+        padding: 2px 12px;
+        border-radius: 999px;
+        transform: rotate(4deg);
+      }
+      .card.wide .art {
+        background: var(--sun);
+      }
+      /* pesan */
+      .order {
+        display: grid;
+        gap: 22px;
+      }
+      @media (min-width: 800px) {
+        .order {
+          grid-template-columns: 1.1fr 0.9fr;
+        }
+      }
+      .box {
+        background: var(--surface);
+        border: 2px solid var(--line);
+        border-radius: 28px;
+        padding: 22px;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px 0;
+        border-bottom: 2px dotted var(--line);
+      }
+      .row .n {
+        flex: 1;
+        font-weight: 800;
+      }
+      .qty {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .qty button {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        border: 2px solid var(--ink);
+        background: transparent;
+        color: var(--ink);
+        font-weight: 800;
+        font-size: 1.1rem;
+        cursor: pointer;
+        line-height: 1;
+      }
+      .total {
+        font:
+          800 1.7rem "Baloo 2",
+          sans-serif;
+        margin-top: 12px;
+      }
+      .note {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin: 4px 0;
+      }
+      label.f {
+        font-weight: 800;
+        font-size: 0.9rem;
+        display: block;
+        margin-top: 8px;
+      }
+      input.f,
+      select.f {
+        font: inherit;
+        width: 100%;
+        padding: 11px 14px;
+        border-radius: 14px;
+        border: 2px solid var(--line);
+        background: var(--bg);
+        color: var(--ink);
+        margin: 4px 0 8px;
+      }
+      .err {
+        color: var(--orange);
+        font-weight: 800;
+        min-height: 1.4em;
+      }
+      .steps {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+        padding: 0;
+        list-style: none;
+        counter-reset: s;
+      }
+      .steps li {
+        counter-increment: s;
+        flex: 1 1 150px;
+        background: var(--mint);
+        border-radius: 18px;
+        padding: 12px 14px;
+        font-weight: 800;
+        font-size: 0.9rem;
+      }
+      .steps li::before {
+        content: counter(s) ".";
+        color: var(--orange);
+        margin-right: 6px;
+      }
+      /* faq */
+      details {
+        background: var(--surface);
+        border: 2px solid var(--line);
+        border-radius: 20px;
+        padding: 14px 20px;
+        margin-bottom: 10px;
+      }
+      summary {
+        font-weight: 800;
+        cursor: pointer;
+      }
+      details p {
+        margin: 0.6em 0 0;
+        color: var(--muted);
+      }
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 28px 0;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+      /* bar bawah */
+      .bar {
+        position: fixed;
+        left: 12px;
+        right: 12px;
+        bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+        z-index: 30;
+        background: var(--ink);
+        color: var(--bg);
+        border-radius: 999px;
+        padding: 8px 8px 8px 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        max-width: 560px;
+        margin: 0 auto;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        transition: transform 0.3s;
+      }
+      .bar.hide {
+        transform: translateY(160%);
+      }
+      .bar b {
+        font:
+          800 1.1rem "Baloo 2",
+          sans-serif;
+      }
+      .bar .btn {
+        background: var(--sun);
+        color: #14213d;
+        padding: 10px 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="top">
+      <div class="wrap">
+        <a class="logo" href="#atas" id="logo"></a>
+        <nav aria-label="Menu">
+          <a href="#racik">Racik</a><a href="#produk">Produk</a
+          ><a href="#pesan">Pesan</a>
+        </nav>
+        <a class="pill" href="#pesan" id="pillCart">Keranjang 0</a>
+      </div>
+    </header>
+
+    <main id="atas">
+      <div class="wrap">
+        <section class="hero">
+          <div>
+            <h1>Sarapan sehat, jadi dalam 3 menit.</h1>
+            <p class="lead">
+              Oatmeal gandum utuh dalam cup, dengan gula yang dikurangi dan rasa
+              yang disukai anak sekolah. Seduh di rumah atau di kantin.
+            </p>
+            <p>
+              <a class="btn" href="#produk">Pilih rasa</a> &nbsp;
+              <a class="btn ghost" href="#racik">Coba racik</a>
+            </p>
+            <ul class="chips">
+              <li>Gandum utuh</li>
+              <li>Tanpa pewarna</li>
+              <li>Mulai Rp12.000</li>
+            </ul>
+          </div>
+          <div class="sunbox" aria-hidden="true">
+            <div class="sun"></div>
+            <div class="big" id="heroCup"></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="wrap">
+        <section id="racik" style="padding-top: 20px">
+          <div class="racik">
+            <div>
+              <h2>Racik oatmeal-mu</h2>
+              <p>
+                Geser takaran dan lihat isi cup berubah. Cocok untuk cari
+                tekstur favoritmu.
+              </p>
+              <label for="oat">Oat <span id="oatV"></span></label>
+              <input
+                type="range"
+                id="oat"
+                min="20"
+                max="80"
+                step="5"
+                value="40"
+              />
+              <label for="milk"
+                >Susu atau air panas <span id="milkV"></span
+              ></label>
+              <input
+                type="range"
+                id="milk"
+                min="100"
+                max="300"
+                step="10"
+                value="150"
+              />
+              <div class="out" id="mixOut"></div>
+            </div>
+            <div class="cupwrap" id="racikCup" aria-hidden="true"></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="wrap">
+        <section id="produk">
+          <h2>Pilih rasa favoritmu</h2>
+          <div class="grid" id="products"></div>
+        </section>
+      </div>
+
+      <div class="wrap">
+        <section id="pesan">
+          <h2>Pesan sekarang</h2>
+          <div class="order">
+            <div class="box">
+              <h3>Keranjangmu</h3>
+              <div id="cartRows"></div>
+              <div class="total" id="total">Rp0</div>
+              <p class="note" id="promo"></p>
+            </div>
+            <div class="box">
+              <h3>Data pemesan</h3>
+              <label class="f" for="nama">Nama</label
+              ><input
+                class="f"
+                id="nama"
+                placeholder="Nama kamu"
+                autocomplete="name"
+              />
+              <label class="f" for="kelas">Kelas atau alamat antar</label
+              ><input
+                class="f"
+                id="kelas"
+                placeholder="Contoh: 8B, atau ambil di kantin"
+              />
+              <label class="f" for="bayar">Pembayaran</label>
+              <select class="f" id="bayar">
+                <option>Tunai saat ambil (COD)</option>
+                <option>Transfer atau QRIS (konfirmasi lewat WA)</option>
+              </select>
+              <button class="btn" id="kirim" style="width: 100%">
+                Kirim pesanan lewat WhatsApp
+              </button>
+              <p class="err" id="err" role="alert"></p>
+            </div>
+          </div>
+          <ol class="steps">
+            <li>Pilih rasa</li>
+            <li>Isi data</li>
+            <li>Kirim lewat WA</li>
+            <li>Ambil atau tunggu antaran</li>
+          </ol>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <div class="wrap">
+        OatPagi © 2026. Proyek KWU Bisnis Digital oleh [Nama Kamu], Kelas [..].
+      </div>
+    </footer>
+
+    <div class="bar hide" id="bar">
+      <span><span id="barN">0</span> item · <b id="barT">Rp0</b></span
+      ><a class="btn" href="#pesan">Checkout</a>
+    </div>
+
+    <script>
+      var WA = "6281513623650"; // GANTI dengan nomor WhatsApp kamu (format 62...)
+      function cup(c, fill) {
+        var f = fill == null ? 0.72 : fill,
+          top = 34 + (1 - f) * 58;
+        return (
+          '<svg viewBox="0 0 100 125" width="100%" role="img" aria-label="Cup oatmeal">' +
+          '<path d="M30 6c-6 8 6 10 0 18M50 4c-6 8 6 10 0 18M70 6c-6 8 6 10 0 18" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="3" stroke-linecap="round"/>' +
+          '<clipPath id="k' +
+          c.replace("#", "") +
+          '"><path d="M14 34h72l-8 84a6 6 0 0 1-6 5H28a6 6 0 0 1-6-5z"/></clipPath>' +
+          '<path d="M14 34h72l-8 84a6 6 0 0 1-6 5H28a6 6 0 0 1-6-5z" fill="#fff8e6" stroke="#14213d" stroke-width="3"/>' +
+          '<rect x="10" y="' +
+          top +
+          '" width="80" height="100" fill="#e9c98a" clip-path="url(#k' +
+          c.replace("#", "") +
+          ')"/>' +
+          '<path d="M17 62h66l-3 32H20z" fill="' +
+          c +
+          '" stroke="#14213d" stroke-width="3" stroke-linejoin="round"/>' +
+          '<circle cx="50" cy="78" r="8" fill="#fff"/><path d="M45 80c3-8 7-8 10 0" fill="none" stroke="' +
+          c +
+          '" stroke-width="3" stroke-linecap="round"/>' +
+          '<rect x="9" y="26" width="82" height="11" rx="5.5" fill="' +
+          c +
+          '" stroke="#14213d" stroke-width="3"/></svg>'
+        );
+      }
+      document.getElementById("logo").innerHTML =
+        '<svg viewBox="0 0 100 125"><path d="M14 34h72l-8 84a6 6 0 0 1-6 5H28a6 6 0 0 1-6-5z" fill="#ffcf4a" stroke="currentColor" stroke-width="8"/><rect x="9" y="22" width="82" height="14" rx="7" fill="#ff6b35" stroke="currentColor" stroke-width="8"/></svg>OatPagi';
+      document.getElementById("heroCup").innerHTML = cup("#ff6b35", 0.8);
+      var P = [
+        {
+          id: 1,
+          n: "Oat Original",
+          c: "#4f9d69",
+          p: 12000,
+          d: "Gandum utuh dengan sedikit madu. Polos, bisa ditambah topping sendiri.",
+          t: "Terlaris",
+        },
+        {
+          id: 2,
+          n: "Oat Coklat",
+          c: "#7a4a2b",
+          p: 15000,
+          d: "Coklat bubuk asli untuk pencinta manis, tapi tidak berlebihan.",
+        },
+        {
+          id: 3,
+          n: "Oat Pisang Madu",
+          c: "#e0a421",
+          p: 15000,
+          d: "Pisang kering dan madu yang wangi dan mengenyangkan.",
+        },
+        {
+          id: 4,
+          n: "Paket Sarapan 5 Hari",
+          c: "#ff6b35",
+          p: 65000,
+          d: "5 cup bebas pilih rasa. Hemat Rp10.000 dari harga satuan.",
+          t: "Hemat",
+          wide: 1,
+        },
+      ];
+      var cart = {},
+        sum = 0;
+      function rp(x) {
+        return "Rp" + x.toLocaleString("id-ID");
+      }
+      var box = document.getElementById("products");
+      P.forEach(function (x) {
+        var c = document.createElement("div");
+        c.className = "card" + (x.wide ? " wide" : "");
+        c.innerHTML =
+          (x.t ? '<span class="tag">' + x.t + "</span>" : "") +
+          '<div class="art">' +
+          cup(x.c) +
+          "</div><h3>" +
+          x.n +
+          "</h3><p>" +
+          x.d +
+          "</p>";
+        var a = document.createElement("div");
+        a.className = "add";
+        a.innerHTML = '<span class="price">' + rp(x.p) + "</span>";
+        var b = document.createElement("button");
+        b.className = "btn";
+        b.textContent = "Tambah";
+        b.onclick = function () {
+          cart[x.id] = (cart[x.id] || 0) + 1;
+          draw();
+          b.textContent = "Ditambah ✓";
+          setTimeout(function () {
+            b.textContent = "Tambah";
+          }, 900);
+        };
+        a.appendChild(b);
+        c.appendChild(a);
+        box.appendChild(c);
+      });
+      function draw() {
+        var rows = document.getElementById("cartRows"),
+          s = 0,
+          cups = 0,
+          items = 0;
+        rows.innerHTML = "";
+        var ids = Object.keys(cart).filter(function (k) {
+          return cart[k] > 0;
+        });
+        if (!ids.length)
+          rows.innerHTML =
+            '<p class="note">Keranjang masih kosong. Tekan “Tambah” pada produk di atas.</p>';
+        ids.forEach(function (k) {
+          var x = P.filter(function (y) {
+              return y.id == k;
+            })[0],
+            q = cart[k];
+          s += x.p * q;
+          items += q;
+          if (x.id != 4) cups += q;
+          var r = document.createElement("div");
+          r.className = "row";
+          r.innerHTML =
+            '<span class="n">' +
+            x.n +
+            '</span><span class="qty"><button aria-label="Kurangi">−</button><b>' +
+            q +
+            '</b><button aria-label="Tambah">+</button></span><span>' +
+            rp(x.p * q) +
+            "</span>";
+          var bs = r.getElementsByTagName("button");
+          bs[0].onclick = function () {
+            cart[k]--;
+            draw();
+          };
+          bs[1].onclick = function () {
+            cart[k]++;
+            draw();
+          };
+          rows.appendChild(r);
+        });
+        var disc = cups >= 5 ? Math.round(s * 0.1) : 0;
+        sum = s - disc;
+        document.getElementById("total").textContent = rp(sum);
+        document.getElementById("promo").textContent = disc
+          ? "Diskon 10% untuk 5 cup atau lebih: hemat " + rp(disc)
+          : cups
+            ? "Tambah " + (5 - cups) + " cup lagi untuk diskon 10%."
+            : "";
+        document.getElementById("pillCart").textContent = "Keranjang " + items;
+        document.getElementById("barN").textContent = items;
+        document.getElementById("barT").textContent = rp(sum);
+        document.getElementById("bar").classList.toggle("hide", items === 0);
+      }
+      draw();
+      document.getElementById("kirim").onclick = function () {
+        var err = document.getElementById("err"),
+          nama = document.getElementById("nama").value.trim(),
+          kelas = document.getElementById("kelas").value.trim();
+        var ids = Object.keys(cart).filter(function (k) {
+          return cart[k] > 0;
+        });
+        if (!ids.length) {
+          err.textContent = "Pilih minimal satu produk dulu.";
+          return;
+        }
+        if (!nama || !kelas) {
+          err.textContent = "Isi nama dan kelas atau alamat dulu.";
+          return;
+        }
+        err.textContent = "";
+        var t = "Halo OatPagi, saya mau pesan:%0A";
+        ids.forEach(function (k) {
+          var x = P.filter(function (y) {
+            return y.id == k;
+          })[0];
+          t += "- " + x.n + " x" + cart[k] + "%0A";
+        });
+        t +=
+          "Total: " +
+          rp(sum) +
+          "%0ANama: " +
+          encodeURIComponent(nama) +
+          "%0ATempat: " +
+          encodeURIComponent(kelas) +
+          "%0APembayaran: " +
+          encodeURIComponent(document.getElementById("bayar").value);
+        window.open("https://wa.me/" + WA + "?text=" + t, "_blank");
+      };
+      function mix() {
+        var o = +document.getElementById("oat").value,
+          m = +document.getElementById("milk").value;
+        document.getElementById("oatV").textContent = o + " g";
+        document.getElementById("milkV").textContent = m + " ml";
+        var kal = Math.round(o * 3.8 + m * 0.5),
+          r = m / o,
+          tx =
+            r < 3
+              ? "Kental, seperti bubur padat."
+              : r < 5
+                ? "Pas, tekstur lembut."
+                : "Encer, enak seperti sup oat.";
+        document.getElementById("mixOut").innerHTML =
+          "Perkiraan energi: <b>±" +
+          kal +
+          " kkal</b><br>Tekstur: " +
+          tx +
+          "<br>Seduh 3 menit, aduk, lalu tambah topping.";
+        document.getElementById("racikCup").innerHTML =
+          '<div style="width:55%;max-width:200px">' +
+          cup("#ffcf4a", Math.min(1, (o + m) / 380)) +
+          "</div>";
+      }
+      document.getElementById("oat").oninput = mix;
+      document.getElementById("milk").oninput = mix;
+      mix();
+    </script>
+  </body>
+</html>
